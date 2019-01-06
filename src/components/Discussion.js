@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { TweenLite } from 'gsap'
+import { connect } from 'react-redux'
+import { getMessages } from '../actions/discussionActions'
 
 const Bubble = styled.div`
     border: none;
@@ -32,25 +33,34 @@ const BubbleContainer = styled.div`
 
 
 class Discussion extends Component {
-    constructor(props) {
-        super(props)
+    constructor( props ) {
+        super( props )
     }
     
     componentDidMount() {
+        console.log(this.props.getMessages())
     }
-    componentDidUpdate() {
+
+    componentDidUpdate(prevProps, prevState) {
+        // this.props
     }
 
     render() {
         return(
             <div>
                 <BubbleContainer>
-                        <Bubble>
-                            Text
-                        </Bubble>
+                    <Bubble>
+                        Text
+                    </Bubble>
                 </BubbleContainer>
             </div>
         )
     }
 }
-export default Discussion 
+
+const mapStateToProps = state => ({
+    messages: state.messages
+})
+
+
+export default connect(mapStateToProps, { getMessages })(Discussion) 
