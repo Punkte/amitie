@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { getMessages } from '../actions/discussionActions'
+
 
 const Bubble = styled.div`
     border: none;
@@ -38,29 +37,32 @@ class Discussion extends Component {
     }
     
     componentDidMount() {
-        console.log(this.props.getMessages())
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // this.props
+        console.log(this.props)
+        window.props = this.props
     }
 
     render() {
         return(
             <div>
-                <BubbleContainer>
-                    <Bubble>
-                        Text
-                    </Bubble>
-                </BubbleContainer>
+                {/* { this.props.messages.messages && (
+                    <BubbleContainer>
+                        { this.props.messages.map(message => (
+                            <Bubble 
+                                key={message.id}
+                            >
+                                { message.content }
+                            </Bubble>
+                        )) }
+                    </BubbleContainer>
+                ) } */}
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({
-    messages: state.messages
-})
 
 
-export default connect(mapStateToProps, { getMessages })(Discussion) 
+export default Discussion
