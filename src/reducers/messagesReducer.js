@@ -9,7 +9,7 @@ const messagesReducer = ( state = initialState, action ) => {
         const messages = action.payload.messages
             return {
                 ...state,
-                messages
+                messages 
             }
         case "ADD_MESSAGE" : 
             const newMessage = action.payload.newMessage
