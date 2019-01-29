@@ -20,7 +20,7 @@ class DiscussionContainer extends Component {
        return(
         <Fragment>
             <Discussion 
-                {...this.props}
+                { ...this.props }
             />
             <Choice />
         </Fragment>
